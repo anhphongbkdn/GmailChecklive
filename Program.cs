@@ -12,6 +12,8 @@ namespace EmailChecker
     {
         static void Main(string[] args)
         {
+            //clearDuplicate();
+
             const string inputFileName = "Assets\\input.txt";
             if (!File.Exists(inputFileName))
             {
@@ -111,6 +113,32 @@ namespace EmailChecker
                     stw.WriteLine(content);
                     stw.Flush();
                     stw.Close();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        static void clearDuplicate()
+        {
+            try
+            {
+                string inputFileName = "Assets\\live.txt";
+                var readAllLines = File.ReadAllLines(inputFileName).Where(x => !string.IsNullOrEmpty(x)).ToList();
+                if (readAllLines.Count <= 0)
+                {
+                    return;
+                }
+
+                for (int i = 0; i < readAllLines.Count; i++)
+                {
+                    var data = readAllLines[i].Split('|');
+                    if (data.Length > 0)
+                    {
+                        writeFile(@"Assets\live_duplicate.txt", $"{data[0]}|{data[1]}|{data[2]}");
+                    }
                 }
             }
             catch
