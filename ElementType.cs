@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmailChecker
 {
-    public enum ByType
+    public enum ElementType
     {
         BY_XPATH,
         BY_CSSSELECTOR

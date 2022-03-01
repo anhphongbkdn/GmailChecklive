@@ -55,7 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByType.cs" />
+    <Compile Include="ElementType.cs" />
     <Compile Include="EmailController.cs" />
     <Compile Include="HangoutChecker.cs" />
     <Compile Include="Program.cs" />

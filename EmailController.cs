@@ -108,7 +108,7 @@ namespace EmailChecker
                             break;
                         }
 
-                        bool exits = isElementExitsWithTimeout("//*[@id=\"password\"]/div[1]/div/div[1]/input", ByType.BY_XPATH, 1000);
+                        bool exits = isElementExitsWithTimeout("//*[@id=\"password\"]/div[1]/div/div[1]/input", ElementType.BY_XPATH, 1000);
                         if (!exits)
                         {
                             break;
@@ -175,7 +175,7 @@ namespace EmailChecker
             return (elements.Count >= 1) ? elements.First() : null;
         }
 
-        private bool isElementExitsWithTimeout(string elementName, ByType type, int milisecondsTimeout)
+        private bool isElementExitsWithTimeout(string elementName, ElementType type, int milisecondsTimeout)
         {
             var stw = Stopwatch.StartNew();
             while (true)
@@ -190,11 +190,11 @@ namespace EmailChecker
                     IWebElement element = null;
                     switch (type)
                     {
-                        case ByType.BY_XPATH:
+                        case ElementType.BY_XPATH:
                             element = FindElementIfExists(driver, By.XPath(elementName));
                             break;
 
-                        case ByType.BY_CSSSELECTOR:
+                        case ElementType.BY_CSSSELECTOR:
                             element = FindElementIfExists(driver, By.CssSelector(elementName));
                             break;
 
